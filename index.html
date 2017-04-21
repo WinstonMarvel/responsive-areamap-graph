@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head>
+<style type="text/css">
+	
+	body {
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	div {
+		width: 100%;
+	}
+	img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+
+	/* Tooltip container */
+.info {
+    position: relative;
+    display: inline-block;
+     /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.info .tooltiptext {
+    visibility: hidden; 
+       width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text  */
+    position: relative;
+   top:0;
+   right:0;
+    z-index: 1;
+    
+}
+
+/* Show the tooltip text when you mouse over the info container */
+.info:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+	
+
+</style>
+</head>
+
+<body>
+<h1 >This is a sample of a responsive image map with a tooltip.</h1>
+<div>
+<img id="sample-graph" src="graph.jpg" border="0" width="1280" height="720" usemap="#image-map" alt="" />
+<div id="placement-examples">
+<map name="image-map" id="image-map">
+<area shape="rect" coords="1278,718,1280,720" alt="Image Map" style="outline:none;" title="Image Map" href="#green" />
+
+<div class="info">
+<area  class="" alt="Dummy text" title="this is green" href="#green" shape="poly" coords="89,467,135,444,72,476,248,386,275,367,312,355,340,345,371,337,384,331,431,314,483,302,532,294,576,284,624,274,664,265,712,262,770,267,824,264,879,259,930,259,988,262,1026,261,1065,261,1074,265,1066,271,1048,272,1026,271,889,272,834,277,727,277,668,277,651,280,632,280,619,290,593,292,559,297,526,304,506,307,457,320,419,333,384,343,341,357,292,374,261,394,166,441,119,466,79,490,75,490,75,473" style="outline:none;" target="_self"  />
+<span class="tooltiptext">Green text</span>
+</div>
+
+<div class="info">
+<area  class="" alt="Dummy text" title="this is red" href="#red" shape="poly" coords="69,645.3999938964844,257,507.3999938964844,341,460.3999938964844,502,375.3999938964844,622,341.3999938964844,654,332.3999938964844,730,328.3999938964844,847,324.3999938964844,953,328.3999938964844,1061,335.3999938964844,1098,339.3999938964844,1137,324.3999938964844,1108,349.3999938964844,1138,341.3999938964844,1140,332.3999938964844,1092,349.3999938964844,1055,351.3999938964844,1013,348.3999938964844,930,338.3999938964844,861,338.3999938964844,811,341.3999938964844,715,341.3999938964844,659,348.3999938964844,632,351.3999938964844,556,368.3999938964844,526,378.3999938964844,388,447.3999938964844,158,602.3999938964844,80,653.3999938964844" style="outline:none;" target="_self"    />
+<span class="tooltiptext">Red text</span>
+</div>
+
+<div class="info">
+<area  class="" alt="Dummy text" title="this is blue" href="#blue" shape="poly" coords="118,647.3999938964844,128,650.3999938964844,166,627.3999938964844,195,630.3999938964844,231,622.3999938964844,290,606.3999938964844,338,592.3999938964844,419,569.3999938964844,466,569.3999938964844,517,549.3999938964844,568,539.3999938964844,621,524.3999938964844,675,523.3999938964844,734,533.3999938964844,764,541.3999938964844,806,557.3999938964844,843,573.3999938964844,896,582.3999938964844,962,590.3999938964844,1008,593.3999938964844,1033,587.3999938964844,1134,586.3999938964844,1127,572.3999938964844,1042,570.3999938964844,1025,576.3999938964844,949,580.3999938964844,922,572.3999938964844,871,564.3999938964844,834,551.3999938964844,784,534.3999938964844,737,521.3999938964844,687,510.3999938964844,658,508.3999938964844,611,511.3999938964844,573,524.3999938964844,527,533.3999938964844,479,550.3999938964844,423,557.3999938964844,406,557.3999938964844,305,584.3999938964844,235,603.3999938964844,198,616.3999938964844,182,617.3999938964844,171,619.3999938964844,156,622.3999938964844,133,629.3999938964844,120,636.3999938964844" style="outline:none;" target="_self"     />
+<span class="tooltiptext">Blue text</span>
+</div>
+
+</map>
+
+
+
+
+
+</div>
+</div>
+</body>
+
+
+<script src="jquery.min.js"></script>
+<script src="jquery.rwdImageMaps.min.js"></script>
+<script src="jquery.powertip-1.1.0.min.js"></script>
+<script>
+
+
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+		alert($(this).attr('alt') + ' clicked');
+	});
+
+	$( ".tooltiptext" ).tooltip({
+  	track: true
+		});
+	$(".info").on('mouseover',function(){
+
+
+	})
+	
+
+});
+
+ 
+
+
+</script>
